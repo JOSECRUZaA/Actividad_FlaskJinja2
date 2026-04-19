@@ -8,17 +8,17 @@ def index():
     services = [
         {
             'title': 'Desarrollo Web',
-            'description': 'Creamos sitios web modernos, rápidos y adaptados a tus necesidades utilizando las últimas tecnologías.',
+            'description': 'Creamos sitios web modernos para empresas bolivianas utilizando las últimas tecnologías.',
             'icon': 'bi-code-slash'
         },
         {
             'title': 'Marketing Digital',
-            'description': 'Potenciamos tu marca en internet a través de estrategias efectivas de SEO, SEM y redes sociales.',
+            'description': 'Potenciamos tu marca en el mercado nacional con estrategias efectivas de redes sociales.',
             'icon': 'bi-megaphone'
         },
         {
             'title': 'Consultoría IT',
-            'description': 'Te asesoramos en la transformación digital de tu empresa para optimizar procesos y recursos.',
+            'description': 'Te asesoramos en la transformación digital de tu negocio para optimizar recursos en el entorno local.',
             'icon': 'bi-pc-display'
         }
     ]

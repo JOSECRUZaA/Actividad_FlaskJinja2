@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto - TechServe{% endblock %}
+
+{% block content %}
+<section class="contact-header text-center bg-light py-5">
+    <div class="container">
+        <h1 class="display-5 fw-bold text-primary mb-3">Ponte en Contacto</h1>
+        <p class="lead text-muted">Estamos aquí para responder tus preguntas y ayudarte con tu próximo proyecto.</p>
+    </div>
+</section>
+
+<section class="contact-section py-5 flex-grow-1 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+                                <i class="bi bi-check-circle-fill me-2"></i>{{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <div class="card border-0 shadow-lg form-card">
+                    <div class="card-body p-5">
+                        <h2 class="h4 fw-bold mb-4 text-center">Envíanos un Mensaje</h2>
+                        <form action="{{ url_for('contact') }}" method="POST" id="contactForm" class="needs-validation" novalidate>
+                            <div class="mb-4 form-floating">
+                                <input type="text" class="form-control bg-light" id="name" name="name" placeholder="Tu Nombre" required>
+                                <label for="name"><i class="bi bi-person me-2"></i>Nombre Completo</label>
+                                <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                            </div>
+                            
+                            <div class="mb-4 form-floating">
+                                <input type="email" class="form-control bg-light" id="email" name="email" placeholder="tu@email.com" required>
+                                <label for="email"><i class="bi bi-envelope me-2"></i>Correo Electrónico</label>
+                                <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+                            </div>
+                            
+                            <div class="mb-4 form-floating">
+                                <textarea class="form-control bg-light" id="message" name="message" placeholder="¿En qué podemos ayudarte?" style="height: 150px" required></textarea>
+                                <label for="message"><i class="bi bi-chat-text me-2"></i>Tu Mensaje</label>
+                                <div class="invalid-feedback">Por favor, escribe tu mensaje.</div>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold shadow-sm" id="submitBtn">
+                                    <i class="bi bi-send-fill me-2"></i>Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-lg-4 mt-5 mt-md-0 d-none d-md-block">
+                <div class="contact-info bg-primary text-white rounded shadow-lg p-5 h-100">
+                    <h3 class="h4 fw-bold mb-4">Información de Contacto</h3>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="bi bi-geo-alt-fill fs-3 me-3 text-info"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Nuestra Oficina</h6>
+                                <small>Av. Principal 123, Ciudad Tecnológica</small>
+                            </div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="bi bi-telephone-fill fs-3 me-3 text-info"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Teléfono</h6>
+                                <small>+1 234 567 890</small>
+                            </div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="bi bi-envelope-fill fs-3 me-3 text-info"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Email</h6>
+                                <small>contacto@techserve.com</small>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="h5 fw-bold mb-3 mt-5">Síguenos</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center transition-all hover-social" style="width: 40px; height: 40px;"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center transition-all hover-social" style="width: 40px; height: 40px;"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center transition-all hover-social" style="width: 40px; height: 40px;"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
